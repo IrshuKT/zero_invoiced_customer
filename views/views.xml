@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_non_invoiced_customer_form" model="ir.ui.view">
+        <field name="name">non.invoiced.customer.form</field>
+        <field name="model">non.invoiced.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <style>
+                    .o_form_view .o_control_panel {
+                    display: none !important;
+                    }
+
+                </style>
+                <div class="row">
+                    <div class="col-md-8" style="height:100px;">
+                        <div class="row" style="width:100%;">
+                            <div class="col" style="padding:30px;margin-left:30px;">
+                                <group>
+                                    <field name="start_date"/>
+                                </group>
+                            </div>
+                            <div class="col" style="padding:30px;">
+                                <group>
+                                    <field name="end_date"/>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex" style="padding:40px; gap:20px;">
+                        <button name="generate_report" string="Generate" type="object" class="oe_highlight"/>
+                        <button name="generate_excel" string="Excel" type="object" class="oe_highlight"/>
+                        <button name="generate_pdf" string="Pdf" type="object" class="oe_highlight"/>
+
+
+                    </div>
+                </div>
+                <div class="row" style="margin:auto;">
+                    <field name="report_html" widget="html"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_non_invoiced_customer" model="ir.actions.act_window">
+        <field name="name">Customers without Invoices</field>
+        <field name="res_model">non.invoiced.customer</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <menuitem id="menu_non_invoiced_customer"
+              name="Non-Invoiced Customers"
+              parent="account.menu_finance_receivables"
+              action="action_non_invoiced_customer"
+              sequence="100"/>
+</odoo>

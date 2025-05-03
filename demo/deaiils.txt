@@ -1,0 +1,5 @@
+zero_invoiced_customer
+
+this module developed for Nomizo tech KSA for the purpose of filtering customers who are note making
+in a selected period . The work follow is searching with customers rank . so its very simple customer
+rank searching module.
